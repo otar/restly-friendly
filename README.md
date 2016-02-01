@@ -9,3 +9,7 @@ Assuming you already have PHP, Apache/Nginx and Neo4j installed, do the followin
 * Install dependencies: `composer install`
 * Copy `app/Config.example.php` to `app/Config.php` and set configuration options.
 * Run tests: `URL=http://localhost/restly-friendly/public/index.php vendor/bin/phpunit tests/`
+
+# Endpoints
+
+Please refer to this page for the API endpoint specifications: https://github.com/otar/rest-api-friendships/blob/master/README.md#service-endpoints
