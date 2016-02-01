@@ -14,7 +14,8 @@ class FriendRequests extends Model
             MATCH (requester:Profile)-[request:FRIEND_REQUEST]->(user:Profile)
             WHERE ID(user) = {id}
             RETURN {
-                id: ID(request),
+                requesterId: ID(requester),
+                requestId: ID(request),
                 firstName: requester.firstName,
                 lastName: requester.lastName,
                 status: request.status,

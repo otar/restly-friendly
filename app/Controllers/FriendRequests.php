@@ -21,18 +21,18 @@ class FriendRequests extends Controller
     public function createFriendRequest(Request $request, array $parameters)
     {
 
-        return new Response(TRUE, [
+        $result = $this->model('FriendRequests')->createFriendRequest($parameters['id'], 1);
 
-        ]);
+        return new Response(TRUE, $result);
 
     }
 
     public function updateFriendRequest(Request $request, array $parameters)
     {
 
-        return new Response(TRUE, [
+        $result = $this->model('FriendRequests')->createFriendRequest($parameters['id'], 1);
 
-        ]);
+        return new Response(TRUE, $result);
 
     }
 
