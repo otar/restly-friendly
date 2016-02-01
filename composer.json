@@ -1,0 +1,25 @@
+{
+    "type": "project",
+    "homepage": "https://github.com/otar/restly-friendly",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Otar Chekurishvili",
+            "email": "otar@chekurishvili.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RestlyFriendly\\": "app/"
+        }
+    },
+    "require": {
+        "league/route": "^1.2",
+        "graphaware/neo4j-php-client": "^3.3",
+        "florianwolters/component-util-singleton": "^0.3.2",
+        "dflydev/dot-access-data": "^1.0"
+    },
+    "require-dev": {
+        "phisby/phisby": "dev-master"
+    }
+}
