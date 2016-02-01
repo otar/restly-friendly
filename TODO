@@ -1,0 +1,4 @@
+1) Do we need controllers at all? Why not handle them in a single callback?
+2) DI for database and configuration? Black-hat testing could be easier.
+3) Database populate script fro quick environment setup would be nice.
+4) Docker and/or Vagrant for environment separation.
