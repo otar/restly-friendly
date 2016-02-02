@@ -2,3 +2,4 @@
 2) DI for database and configuration? Black-hat testing could be easier.
 3) Database populate script fro quick environment setup would be nice.
 4) Docker and/or Vagrant for environment separation.
+5) Add JWT based auth and rewrite everything in the user context

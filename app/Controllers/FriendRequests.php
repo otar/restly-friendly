@@ -21,7 +21,21 @@ class FriendRequests extends Controller
     public function createFriendRequest(Request $request, array $parameters)
     {
 
-        $result = $this->model('FriendRequests')->createFriendRequest($parameters['id'], 1);
+        $post = $this->getPostData($request);
+
+        if (
+               !isset($post['requester'])
+            OR !is_numeric($post['requester'])
+        )
+        {
+            // TODO: Add error message
+            return new Response();
+        }
+
+        $result = $this->model('FriendRequests')->createFriendRequest(
+            $parameters['id'],
+            $post['requester']
+        );
 
         return new Response(TRUE, $result);
 

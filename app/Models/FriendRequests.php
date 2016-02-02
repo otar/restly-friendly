@@ -32,4 +32,42 @@ class FriendRequests extends Model
 
     }
 
+    public function createFriendRequest($user, $requester)
+    {
+
+        $query = '
+            MATCH (requester:Profile), (user:Profile)
+            WHERE ID(user) = {user}
+            AND ID(requester) = {requester}
+            CREATE (requester)
+                -[:FRIEND_REQUEST {
+                    status: \'pending\',
+                    createdAt: TIMESTAMP()
+                }]
+                ->(user)
+            RETURN {
+                created: true
+            } AS result
+        ';
+
+        $parameters = [
+            'user' => (integer) $user,
+            'requester' => (integer) $requester
+        ];
+
+        $result = $this->db->query($query, $parameters)->getRows();
+
+        return isset($result['result'][0])
+                    ? $result['result'][0]
+                    : new stdClass;
+
+    }
+
+    public function updateFriendRequest()
+    {
+
+
+
+    }
+
 }
