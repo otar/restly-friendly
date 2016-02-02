@@ -34,14 +34,25 @@ class Friends extends Model
     {
 
         $query = '
-
+            MATCH (user1:Profile)-[friends:FRIENDS*2..3]->(user2:Profile)
+            WHERE ID(user1) = {id}
+            RETURN {
+                id: ID(user1),
+                firstName: user1.firstName,
+                lastName: user1.lastName,
+                friendsOfFriends: collect(user2)
+            } AS result
         ';
 
         $parameters = [
             'id' => (integer) $id
         ];
 
-        return $this->db->query($query, $parameters)->getRows();
+        $result = $this->db->query($query, $parameters)->getRows();
+
+        return isset($result['result'][0])
+            ? $result['result'][0]
+            : [];
 
     }
 

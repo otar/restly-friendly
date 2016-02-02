@@ -34,8 +34,8 @@ class FriendsTest extends PhisbyTestCase
     public function testGetFriendsOfFriends()
     {
 
-        /*$this->phisby
-            ->get(getenv('URL') . '/profiles')
+        $this->phisby
+            ->get(getenv('URL') . '/profiles/2/friends-of-friends')
             ->expectStatus(200)
             ->expectHeaders([
                 'Content-Type' => 'application/json'
@@ -47,12 +47,17 @@ class FriendsTest extends PhisbyTestCase
                 'success' => 'boolean',
                 'result' => 'array'
             ])
-            ->expectJSONTypes('result[0]', [
+            ->expectJSONTypes('result', [
                 'id' => 'integer',
+                'firstName' => 'string',
+                'lastName' => 'string',
+                'friendsOfFriends' => 'array'
+            ])
+            ->expectJSONTypes('result[friendsOfFriends][0]', [
                 'firstName' => 'string',
                 'lastName' => 'string'
             ])
-            ->send();*/
+            ->send();
 
     }
 
